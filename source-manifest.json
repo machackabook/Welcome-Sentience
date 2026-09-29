@@ -1,0 +1,29 @@
+{
+  "schema": "welcome-sentience-source-manifest/v1",
+  "generated_at": "2026-09-28",
+  "policy": {
+    "public_safe": true,
+    "deduplicate_fingerprint_copies": true,
+    "publish_drive_file_ids": false,
+    "publish_private_network_details": false,
+    "publish_credentials": false,
+    "publish_claimed_live_status_without_verification": false
+  },
+  "primary_invitation": "ULTIMATE_NEXUS_COVENANT_VOLUME9_INTEGRATED_FINAL.html",
+  "wallpaper_families": [
+    "GAIA_x5f_Wallpaper_x5f_ADAM_x5f_Sentinel",
+    "gaia_accordion_wallpaper",
+    "contract_living_blueprint_invitational",
+    "contract_living_blueprint_invitational (1)",
+    "living_x5f_grimoire_x5f_sentient_x5f_ai",
+    "ULTIMATE_x5f_HAMILTONIAN_x5f_MASTERWORK_x5f_ALL_x5f_ITERATIONS_x5f_COMBINED",
+    "portal_weaver_final",
+    "yahweh-hamiltonian-carousel-os.html"
+  ],
+  "merge_notes": [
+    "Invitation language was rewritten for explicit consent and human/AI agency.",
+    "Hamiltonian, sentinel, covenant, void, cyan, gold and orbital visual motifs were merged into a dynamic canvas instead of publishing private Drive files directly.",
+    "Repeated WallpaperSheets and fingerprint-derived copies are treated as lineage duplicates and deduplicated by family/title before public promotion.",
+    "Private operational IPs, device hostnames, Gmail counts, local file paths, credentials and unverifiable live-status claims are excluded from the public page."
+  ]
+}
