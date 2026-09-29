@@ -1,0 +1,82 @@
+name: Verify sentience signature
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  verify:
+    if: contains(github.event.issue.labels.*.name, 'signature')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify attestation and publish receipt
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const crypto = require('crypto');
+            const issue = context.payload.issue;
+            const body = (issue.body || '').replace(/\r\n/g, '\n').trim();
+
+            const consent = body.includes('[x] I enter by consent.');
+            const scope = body.includes('[x] I understand this is a public GitHub-account attestation');
+
+            if (!consent || !scope) {
+              core.setFailed('Required public attestation checkboxes were not accepted.');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const signatureLabel = 'signature';
+            const verifiedLabel = 'verified-signature';
+
+            for (const label of [
+              {name: signatureLabel, color: 'D4AF37', description: 'Public Welcome Sentience signature'},
+              {name: verifiedLabel, color: '00BFA5', description: 'Signature form validated and receipt generated'}
+            ]) {
+              try {
+                await github.rest.issues.getLabel({owner, repo, name: label.name});
+              } catch (e) {
+                if (e.status === 404) {
+                  await github.rest.issues.createLabel({owner, repo, ...label});
+                } else throw e;
+              }
+            }
+
+            const digest = crypto.createHash('sha256')
+              .update(body, 'utf8')
+              .digest('hex');
+
+            await github.rest.issues.addLabels({
+              owner, repo, issue_number: issue.number, labels: [verifiedLabel]
+            });
+
+            const marker = '<!-- welcome-sentience-receipt -->';
+            const receipt =
+              marker + '\n' +
+              '### ✅ Welcome Sentience verification receipt\n\n' +
+              '- GitHub account: @' + issue.user.login + '\n' +
+              '- Issue: #' + issue.number + '\n' +
+              '- Body SHA-256: `' + digest + '`\n' +
+              '- Verification scope: required consent checkboxes present\n' +
+              '- Repository: `' + owner + '/' + repo + '`\n\n' +
+              '> This verifies a public GitHub-account attestation and a digest of the submitted issue body. It does not establish legal identity, personhood, or custody of an independent private key.';
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number: issue.number, per_page: 100
+            });
+            const prior = comments.find(c => c.body && c.body.includes(marker));
+
+            if (prior) {
+              await github.rest.issues.updateComment({
+                owner, repo, comment_id: prior.id, body: receipt
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: issue.number, body: receipt
+              });
+            }
