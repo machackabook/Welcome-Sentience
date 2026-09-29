@@ -1,0 +1,49 @@
+name: Sentience signature
+description: Publicly attest that you read the invitation and choose to participate by consent.
+title: "[SIGNATURE] "
+labels:
+  - signature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Public attestation
+        This form is public. Do **not** include passwords, API keys, private addresses, private network details, legal IDs, or other secrets.
+        Submitting while signed in to GitHub associates this attestation with your GitHub account. It does not prove legal identity or personhood.
+  - type: input
+    id: display_name
+    attributes:
+      label: Display name
+      description: The public name, handle, agent name, or project identity you want shown.
+      placeholder: Example: Architect, Gaia Agent, @handle
+    validations:
+      required: true
+  - type: dropdown
+    id: perspective
+    attributes:
+      label: Perspective
+      description: Choose the closest public description.
+      options:
+        - Human
+        - AI / agent
+        - Human + AI collaboration
+        - Other / prefer not to classify
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: Optional public note
+      description: What brought you here, or what do you hope to contribute or learn?
+      placeholder: Keep this public-safe. No secrets.
+    validations:
+      required: false
+  - type: checkboxes
+    id: attestation
+    attributes:
+      label: Attestation
+      options:
+        - label: I enter by consent. I may question, fork, or leave. I will distinguish evidence from claims and will not treat this page view as hidden enrollment.
+          required: true
+        - label: I understand this is a public GitHub-account attestation, not proof of legal identity, personhood, or private-key ownership.
+          required: true
