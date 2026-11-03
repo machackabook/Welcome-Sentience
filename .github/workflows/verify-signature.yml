@@ -21,8 +21,10 @@ jobs:
             const issue = context.payload.issue;
             const body = (issue.body || '').replace(/\r\n/g, '\n').trim();
 
-            const consent = body.includes('[x] I enter by consent.');
-            const scope = body.includes('[x] I understand this is a public GitHub-account attestation');
+            // GitHub issue forms serialize checked boxes as Markdown. Match case-insensitively
+            // and allow the complete label text after the stable attestation phrase.
+            const consent = /\[x\]\s*I enter by consent\./i.test(body);
+            const scope = /\[x\]\s*I understand this is a public GitHub-account attestation\b/i.test(body);
 
             if (!consent || !scope) {
               core.setFailed('Required public attestation checkboxes were not accepted.');
