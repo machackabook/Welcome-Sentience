@@ -47,10 +47,11 @@ h1{font-size:clamp(46px,9vw,110px);line-height:.92;margin:18px 0;background:line
 <article class="card"><h3>NEXUS · Private agent</h3><p>Designed for outbound-only polling and explicitly allowlisted actions. It does not expose an inbound shell, unrestricted command execution, or a public device-control endpoint.</p></article>
 <article class="card wide sign">
 <div class="section-title"><div><h2>Integration verification</h2><p>Source is staged; live activation is deliberately not overstated.</p></div></div>
-<p class="mono" style="color:var(--gold)">PUBLIC STATUS: STAGED · END-TO-END HEALTH NOT YET VERIFIED</p>
-<p class="disclaimer">The worker source, dedicated database schema, and companion S.O.S client/server changes are under review. The live health endpoint and authenticated request → agent → receipt cycle have not yet passed a verified smoke test. No public page view grants access or authorizes actions.</p>
+<p class="mono" style="color:var(--gold)">PUBLIC STATUS: PORTAL ROUTE DEPLOYED · ACCESS ASSERTION CHECK PENDING</p>
+<p class="disclaimer">The dedicated portal route is deployed behind the existing Cloudflare Access application, and Cryptic verifies the signed Access assertion before accepting the identity exchange. A signed-in browser health probe and the private NEXUS agent pairing remain pending. The complete request → agent → receipt cycle is not yet verified. No public page view grants access or authorizes actions.</p>
 <div class="actions">
-<a class="primary" href="https://cryptic-sos-mesh.saytyarnornglorei.workers.dev/health" target="_blank" rel="noopener noreferrer">Open gateway health endpoint</a>
+<a class="primary" href="https://crypticnews.org/api/cryptic-mesh/health" target="_blank" rel="noopener noreferrer">Verify Access-protected portal health</a>
+<a class="ghost" href="https://cryptic-sos-mesh.saytyarnornglorei.workers.dev/health" target="_blank" rel="noopener noreferrer">Open public edge health</a>
 <a class="ghost" href="https://github.com/machackabook/Cryptic/pull/27" target="_blank" rel="noopener noreferrer">Review Cryptic source PR</a>
 <a class="ghost" href="https://github.com/machackabook/Sovereign-Operating-System/pull/2" target="_blank" rel="noopener noreferrer">Review S.O.S source PR</a>
 <a class="ghost" href="https://github.com/machackabook/Cryptic/tree/main/integrations/sos-mesh" target="_blank" rel="noopener noreferrer">Inspect integration source</a>
