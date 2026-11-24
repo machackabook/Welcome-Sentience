@@ -24,6 +24,42 @@
     "Invitation language was rewritten for explicit consent and human/AI agency.",
     "Hamiltonian, sentinel, covenant, void, cyan, gold and orbital visual motifs were merged into a dynamic canvas instead of publishing private Drive files directly.",
     "Repeated WallpaperSheets and fingerprint-derived copies are treated as lineage duplicates and deduplicated by family/title before public promotion.",
-    "Private operational IPs, device hostnames, Gmail counts, local file paths, credentials and unverifiable live-status claims are excluded from the public page."
-  ]
+    "Private operational IPs, device hostnames, Gmail counts, local file paths, credentials and unverifiable live-status claims are excluded from the public page.",
+    "The Library artifact contract_living_blueprint_invitational (1).html is retained as invitation design lineage; its automatic memory-write and third-party witness assertions are not carried into the public visitor contract.",
+    "The public Invitation HTML contract is opt-in: page views create no consent, membership, signature, or memory record.",
+    "The current GitHub signature workflow verifies two required consent acknowledgements and publishes a GitHub-account attestation receipt with a SHA-256 body digest; it does not prove legal identity or independent key custody.",
+    "The GAIA NEXUS OpenAPI 3.0.3 specification is linked as a draft contract artifact; endpoints are not represented as deployed."
+  ],
+  "invitation_contract": {
+    "version": "1.0.0",
+    "document": "docs/INVITATION-HTML-CONTRACT.md",
+    "public_section": "index.html#contract",
+    "source_lineage": [
+      "contract_living_blueprint_invitational (1).html",
+      "ULTIMATE_NEXUS_COVENANT_VOLUME9_INTEGRATED_FINAL.html"
+    ],
+    "participation_policy": {
+      "page_view_is_consent": false,
+      "automatic_memory_write": false,
+      "signature_is_opt_in": true,
+      "public_github_account_attestation_only": true,
+      "sha256_receipt_proves_legal_identity": false,
+      "third_party_witness_or_endorsement_implied": false
+    },
+    "ownership": {
+      "primary": "Cryptic News LLC",
+      "secondary_ecosystem": [
+        "Google",
+        "OpenAI"
+      ],
+      "conditional_equal_ownership_requires_signed_agreement": true
+    }
+  },
+  "api_contract": {
+    "repository": "NexusCryptic/Welcome-Sentience",
+    "pull_request": 4,
+    "status": "draft",
+    "spec_path": "openapi/gaia-nexus-ccme-3.0.3.yaml",
+    "deployed": false
+  }
 }
