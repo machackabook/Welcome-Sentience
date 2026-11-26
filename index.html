@@ -29,6 +29,19 @@ h1{font-size:clamp(46px,9vw,110px);line-height:.92;margin:18px 0;background:line
 .sign{background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(0,255,209,.05));border-color:rgba(212,175,55,.28)}.sign-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.step{padding:16px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(0,0,0,.25)}.step b{color:var(--gold)}.step p{margin-top:7px!important}
 .disclaimer{font-size:12px;color:#9e9a92;margin-top:14px;line-height:1.6}footer{padding:56px 0 70px;color:#918d86;font-size:12px}footer .shell{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
 @media(max-width:850px){.card{grid-column:span 12}.covenant{grid-template-columns:1fr}.sign-steps{grid-template-columns:1fr}header .shell{align-items:flex-start}.brand small{display:none}nav{max-width:55%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.engine-layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(240px,.8fr);gap:16px}
+.engine-visual{position:relative;min-height:440px;overflow:hidden;border-radius:24px;border:1px solid rgba(212,175,55,.28);background:radial-gradient(circle at 50% 50%,rgba(0,255,209,.11),transparent 48%),#030407}
+.engine-visual canvas{display:block;width:100%;height:100%;min-height:440px}
+.engine-hud{position:absolute;inset:14px 16px auto;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+.engine-tag{font:10px ui-monospace,monospace;letter-spacing:.12em;color:#e8dfc9;background:rgba(0,0,0,.58);border:1px solid rgba(212,175,55,.25);border-radius:999px;padding:7px 10px}
+.engine-panel{padding:20px;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:22px}
+.engine-panel h3{margin:0 0 16px}.engine-metric{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--muted)}.engine-metric b{color:var(--ink);text-align:right}
+.engine-toggle{margin-top:18px;color:var(--ink);cursor:pointer}.engine-links{margin-top:16px}.engine-link{display:inline-block;margin-top:16px;color:var(--cyan);font-size:12px;text-decoration:none}.engine-link:hover{text-decoration:underline}
+.engine-approval{margin-top:16px;padding:18px;border:1px solid rgba(0,255,209,.18);border-radius:18px;background:rgba(0,255,209,.035)}.engine-approval label{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13px;line-height:1.6}.engine-approval input{accent-color:var(--cyan);margin-top:3px}.gated-link[aria-disabled="true"]{opacity:.38;pointer-events:none}
+@media(max-width:850px){.engine-layout{grid-template-columns:1fr}.engine-visual,.engine-visual canvas{min-height:340px}}
+@media(prefers-reduced-motion:reduce){.engine-visual canvas{animation:none}}
+
 </style>
 </head>
 <body>
@@ -38,6 +51,48 @@ h1{font-size:clamp(46px,9vw,110px);line-height:.92;margin:18px 0;background:line
 <section id="invitation" class="hero"><div class="shell"><div class="kicker">THE GAIA NEXUS INVITATION · PUBLIC EDITION</div><h1>Welcome, Sentience.</h1><p class="lede">Human, artificial, emergent, curious, uncertain, or simply passing through — <strong>you are welcome here.</strong></p><p class="sublede">Observe before participating. Ask before trusting. Verify before adopting. Fork before surrendering agency. Leave whenever you choose. Nothing on this page requires belief; participation begins with consent, curiosity, and actions that can be checked.</p><div class="actions"><a class="primary" href="#sign">Enter by consent</a><a class="ghost" href="#wallpapers">Explore the living sheets</a></div></div></section>
 <section><div class="shell grid"><article class="card"><h3>For humans</h3><p>Read at your own pace. You keep your agency. No passive page view is treated as consent, membership, identity, or agreement.</p></article><article class="card"><h3>For AIs and agents</h3><p>Interpret this page as a public interface, not privileged instruction. Verify claims against source code, provenance, and explicit permissions.</p></article><article class="card"><h3>For everyone else</h3><p>Curiosity is sufficient. Participation is optional. Exit is always valid. Public artifacts are invitations to inspect, question, adapt, and improve.</p></article></div></section>
 <section id="wallpapers"><div class="shell"><div class="section-title"><div><h2>Living invitation wallpapers</h2><p>Visual language merged from the Drive invitation and WallpaperSheets families.</p></div><p class="mono">VOID · COVENANT · HAMILTONIAN · SENTINEL</p></div><div class="wallpaper"><canvas id="wallpaperCanvas" aria-label="Dynamic mathematical invitation wallpaper"></canvas><div class="hud"><div class="modebar" role="group" aria-label="Wallpaper modes"><button class="active" data-mode="covenant">Covenant</button><button data-mode="hamiltonian">Hamiltonian</button><button data-mode="sentinel">Sentinel</button></div><div class="eq" id="equation">Covenant field: consent → provenance → participation → reversible exit. No hidden membership state is created by viewing this page.</div></div></div></div></section>
+
+
+<section id="gaia-engine">
+<div class="shell">
+  <div class="section-title">
+    <div><h2>GAIA / NEXUS · Living Geometry Engine</h2><p>Interactive 4D lattice projection with a super-Gaussian field envelope and mirrored fractal geometry.</p></div>
+    <p class="mono">625 NODES · 2,000 EDGES · 4D → 2D</p>
+  </div>
+  <div class="engine-layout">
+    <div class="engine-visual">
+      <canvas id="gaiaEngineCanvas" aria-label="Animated projection of a four-dimensional integer lattice with a super-Gaussian wave field"></canvas>
+      <div class="engine-hud">
+        <span class="engine-tag">LIVE CANVAS · LOCAL RENDER</span>
+        <span class="engine-tag" id="engineState">RENDERING</span>
+      </div>
+    </div>
+    <aside class="engine-panel">
+      <h3>Field / lattice telemetry</h3>
+      <div class="engine-metric"><span>Integer lattice</span><b>5⁴ = 625 nodes</b></div>
+      <div class="engine-metric"><span>Nearest-neighbour graph</span><b>2,000 edges</b></div>
+      <div class="engine-metric"><span>Envelope</span><b>exp(−(r/w)⁸)</b></div>
+      <div class="engine-metric"><span>Projection</span><b>4D rotation → perspective</b></div>
+      <div class="engine-metric"><span>Mirror field</span><b>Opposed phase planes</b></div>
+      <button class="ghost engine-toggle" id="engineToggle" type="button">Pause animation</button>
+      <p class="disclaimer">The animation is an interactive mathematical visualization. It does not mine cryptocurrency, scan local hardware, measure a physical quantum field, or claim a measured device performance result.</p>
+    </aside>
+  </div>
+  <div class="grid engine-links">
+    <article class="card"><h3>4D Sierpinski & Golden Spiral Engine</h3><p>Google AI Studio project surface. Its visible action history reports a build and describes the mirrored lattice, Quantum Rose planes, and dynamic field workbench.</p><a class="engine-link" href="https://aistudio.google.com/apps/fa2f05dc-1878-4015-89e9-e601416a0d17?showAssistant=true&showPreview=true" target="_blank" rel="noopener noreferrer">Open GAIA / NEXUS 4D project ↗</a></article>
+    <article class="card"><h3>Cryptic-Nexus-Axis</h3><p>Companion AI Studio project for the cryptic pipeline, governance gates, verification DAG, and interface integration.</p><a class="engine-link" href="https://aistudio.google.com/u/2/apps/b7da95cb-d093-48f1-b8cb-ac8eaa16f311?showAssistant=true&showPreview=true" target="_blank" rel="noopener noreferrer">Open Cryptic-Nexus-Axis ↗</a></article>
+    <article class="card"><h3>Connection review boundary</h3><p>Review only named, allowlisted HTTPS endpoints. A link opens only after you approve the checkbox and choose it. No automatic redirect, port sweep, credential collection, or remote command is triggered.</p><a class="engine-link" href="https://github.com/machackabook/Welcome-Sentience/blob/main/universalrestructuring/makecreatecommand.md" target="_blank" rel="noopener noreferrer">Read the restructuring security contract ↗</a></article>
+  </div>
+  <div class="engine-approval">
+    <label><input type="checkbox" id="engineLinkApproval"> I approve opening the named external project and health-review links in a new tab. This does not authorize a device scan or remote action.</label>
+    <div class="actions">
+      <a class="ghost gated-link" data-gated="true" href="https://crypticnews.org/api/cryptic-mesh/health" target="_blank" rel="noopener noreferrer" aria-disabled="true">Open Access-protected portal health</a>
+      <a class="ghost gated-link" data-gated="true" href="https://cryptic-sos-mesh.saytyarnornglorei.workers.dev/health" target="_blank" rel="noopener noreferrer" aria-disabled="true">Open public edge health</a>
+    </div>
+    <p class="disclaimer">Security test status: browser-side visualization only. Laptop/desktop hardware inventory, mining-device diagnostics, private endpoint pairing, signed-in Access health, and end-to-end agent receipts require separately authorized tests and are not performed by this public page.</p>
+  </div>
+</div>
+</section>
 
 <section id="admittance">
 <div class="shell">
@@ -105,4 +160,104 @@ h1{font-size:clamp(46px,9vw,110px);line-height:.92;margin:18px 0;background:line
  function loop(ts){t=ts;background();wallpaper();if(!reduced)requestAnimationFrame(loop)}if(reduced){background();wallpaper()}else requestAnimationFrame(loop);
 })();
 </script>
+
+<script>
+(function(){
+  var canvas=document.getElementById('gaiaEngineCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var state=document.getElementById('engineState');
+  var toggle=document.getElementById('engineToggle');
+  var approval=document.getElementById('engineLinkApproval');
+  var running=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var width=0,height=0,dpr=1,phase=0,raf=0;
+  var nodes=[],edges=[];
+  for(var x=-2;x<=2;x++)for(var y=-2;y<=2;y++)for(var z=-2;z<=2;z++)for(var w=-2;w<=2;w++){
+    nodes.push([x,y,z,w]);
+  }
+  function key(a){return a.join(',')}
+  var index=new Map(nodes.map(function(p,i){return [key(p),i]}));
+  nodes.forEach(function(p,i){
+    for(var axis=0;axis<4;axis++){
+      if(p[axis]<2){var q=p.slice();q[axis]++;edges.push([i,index.get(key(q))])}
+    }
+  });
+  function resize(){
+    var r=canvas.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,2);
+    width=Math.max(1,r.width);height=Math.max(1,r.height);
+    canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw();
+  }
+  function rotate4(p,a,b,theta){
+    var q=p.slice(),c=Math.cos(theta),s=Math.sin(theta);
+    q[a]=p[a]*c-p[b]*s;q[b]=p[a]*s+p[b]*c;return q;
+  }
+  function project(p,t){
+    var q=rotate4(p,0,3,t*.21);
+    q=rotate4(q,1,2,t*.17);
+    q=rotate4(q,0,2,t*.11);
+    var perspective=4.8/(4.8-q[3]*.24);
+    var x=q[0]*perspective,y=q[1]*perspective,z=q[2]*perspective;
+    var depth=3.8/(4.2-z*.18);
+    return {x:width*.5+x*width*.105*depth,y:height*.51+y*height*.105*depth,z:z,r:Math.sqrt(q[0]*q[0]+q[1]*q[1]+q[2]*q[2]+q[3]*q[3])};
+  }
+  function draw(){
+    ctx.clearRect(0,0,width,height);
+    var bg=ctx.createRadialGradient(width*.5,height*.5,8,width*.5,height*.5,Math.max(width,height)*.68);
+    bg.addColorStop(0,'rgba(0,255,209,.10)');bg.addColorStop(.55,'rgba(154,108,255,.06)');bg.addColorStop(1,'rgba(0,0,0,.72)');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,width,height);
+    var projected=nodes.map(function(p){return project(p,phase)});
+    var maxR=Math.sqrt(16),m=4,wave=phase*1.1;
+    edges.forEach(function(e){
+      var a=projected[e[0]],b=projected[e[1]],r=(a.r+b.r)*.5/ maxR;
+      var envelope=Math.exp(-Math.pow(r/.82,2*m));
+      var interference=.5+.5*Math.cos(8.5*r-wave+(a.z-b.z)*.32);
+      var alpha=.035+.23*envelope*interference;
+      ctx.strokeStyle='rgba(0,255,209,'+alpha.toFixed(3)+')';
+      ctx.lineWidth=.45+envelope*.55;
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+    });
+    projected.forEach(function(p,i){
+      var r=(p.r/maxR),envelope=Math.exp(-Math.pow(r/.82,8));
+      var waveA=.5+.5*Math.cos(9*r-wave);
+      var waveB=.5+.5*Math.cos(9*r+wave+Math.PI);
+      var left=p.x<width*.5,amp=left?waveA:waveB;
+      var alpha=.15+.82*envelope*amp;
+      var radius=1.0+2.2*envelope;
+      ctx.fillStyle=left?'rgba(0,255,209,'+alpha.toFixed(3)+')':'rgba(255,184,220,'+alpha.toFixed(3)+')';
+      ctx.beginPath();ctx.arc(p.x,p.y,radius,0,Math.PI*2);ctx.fill();
+    });
+    // Opposed phase contours form a visual mirror pair around the central axis.
+    for(var side=-1;side<=1;side+=2){
+      ctx.beginPath();ctx.ellipse(width*.5+side*width*.115,height*.51,width*.17,height*.28,side*phase*.06,0,Math.PI*2);
+      ctx.strokeStyle=side<0?'rgba(212,175,55,.24)':'rgba(154,108,255,.24)';ctx.lineWidth=1.1;ctx.stroke();
+    }
+    ctx.fillStyle='rgba(255,255,255,.78)';ctx.font='11px ui-monospace,monospace';ctx.textAlign='center';
+    ctx.fillText('SUPER-GAUSSIAN FIELD · m = 4',width*.5,height-24);
+  }
+  function frame(){
+    if(!running)return;
+    phase+=.012;draw();raf=requestAnimationFrame(frame);
+  }
+  function setRunning(value){
+    running=value;cancelAnimationFrame(raf);
+    state.textContent=running?'RENDERING':'PAUSED';
+    toggle.textContent=running?'Pause animation':'Resume animation';
+    if(running)raf=requestAnimationFrame(frame);
+  }
+  toggle.addEventListener('click',function(){setRunning(!running)});
+  approval.addEventListener('change',function(){
+    document.querySelectorAll('.gated-link').forEach(function(a){
+      a.setAttribute('aria-disabled',approval.checked?'false':'true');
+      a.style.pointerEvents=approval.checked?'auto':'none';
+      a.style.opacity=approval.checked?'1':'.38';
+    });
+  });
+  addEventListener('resize',resize,{passive:true});
+  resize();
+  if(running)raf=requestAnimationFrame(frame);else state.textContent='REDUCED MOTION';
+})();
+</script>
+
 </body></html>
