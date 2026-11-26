@@ -34,3 +34,17 @@ The public invitation now includes a local animated 4D lattice / super-Gaussian 
 - `universalrestructuring/makecreatecommand.md` — endpoint, routing, cryptographic, Merkle, duplication, and telemetry security contract
 
 The canvas is a public visualization, not a miner, device scanner, or privileged endpoint controller. Its source has been committed and re-fetched; runtime, device, and end-to-end service tests remain separately gated.
+
+
+## Sparse media-memory fabric
+
+The invitation now includes a design surface for the GAIA / NEXUS sparse media-memory architecture.
+
+- `index.html#memory-fabric` — public overview and named Studio trajectory inputs
+- `docs/sparse-media-memory-fabric.md` — full architecture, data envelope, chunking, audio/Braille/Morse framing, rendering, crypto, scheduler, and acceptance tests
+- `docs/gaia-nexus-living-canvas.md` — current live canvas scope and evidence boundaries
+- `universalrestructuring/makecreatecommand.md` — endpoint and provenance security contract
+
+The design uses sparse logical cells, bounded measured storage, deterministic weighted overflow, and independent verification receipts. It does not assume infinite physical memory, invert SHA-256, claim unverified FIPS validation, or treat Grover's algorithm as a general-purpose renderer accelerator.
+
+Source-summary ingestion, runtime implementation, device pairing, and end-to-end tests remain pending until their source exports and explicit permissions are available.
